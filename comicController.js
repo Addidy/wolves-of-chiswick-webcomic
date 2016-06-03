@@ -1,4 +1,4 @@
-app.controller('comicController', function($scope){
+app.controller('comicController', function($scope, $location){
 	
 	//Get list of comics in order
 	$scope.comics = [ 
@@ -11,8 +11,8 @@ app.controller('comicController', function($scope){
 	$scope.currentComicIndex = $scope.comics.length - 1;				//set current comic index to the last comic
 	$scope.comicURL = $scope.comics[$scope.currentComicIndex];			//display current comic
 	
-		
-	//$scope.debug = Math.floor(Math.random() * $scope.comics.length);	//variable display for debugging purposes
+	$scope.myURL = $location.absUrl;
+	$scope.debug = $scope.myURL;	//variable display for debugging purposes
 	
 	$scope.switchComic = function(cci){
 		if(cci < $scope.comics.length && cci >= 0){
