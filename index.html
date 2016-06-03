@@ -3,7 +3,7 @@
 	<head>
 		<title>Wolves of Chiswick</title>
 		<meta charset="UTF-8">
-		<!--link rel="stylesheet" href="style.css"-->
+		<link rel="stylesheet" href="style.css">
 		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 	</head>
 	<body>
@@ -15,21 +15,21 @@
 			<h2>{{debug}}</h2>
 			<nav>
 				<ul>
-					<li data-ng-click="oldest()">&lt;&lt;</li>
-					<li data-ng-click="previous()">&lt;</li>
+					<li data-ng-style="prevStyle" data-ng-click="oldest()">&lt;&lt;</li>
+					<li data-ng-style="prevStyle" data-ng-click="previous()">&lt;</li>
 					<li data-ng-click="random()">Random</li>
-					<li data-ng-click="next()">&gt;</li>
-					<li data-ng-click="newest()">&gt;&gt;</li>			
+					<li data-ng-style="nextStyle" data-ng-click="next()">&gt;</li>
+					<li data-ng-style="nextStyle" data-ng-click="newest()">&gt;&gt;</li>			
 				</ul>
 			</nav>
 			<img data-ng-src="{{ comicURL }}" alt="Wolves of Chiswick webcomic">
 			<nav>
 				<ul>
-					<li data-ng-click="oldest()">&lt;&lt;</li>
-					<li data-ng-click="previous()">&lt;</li>
-					<li data-ng-click="random()">Random</li>
-					<li data-ng-click="next()">&gt;</li>
-					<li data-ng-click="newest()">&gt;&gt;</li>			
+					<li data-ng-style="prevStyle" data-ng-click="oldest()">&lt;&lt;</li>
+					<li data-ng-style="prevStyle" data-ng-click="previous()">&lt;</li>
+					<li style="display: inline" data-ng-click="random()">Random</li>
+					<li data-ng-style="nextStyle" data-ng-click="next()">&gt;</li>
+					<li data-ng-style="nextStyle" data-ng-click="newest()">&gt;&gt;</li>		
 				</ul>
 			</nav>
 		</div>
