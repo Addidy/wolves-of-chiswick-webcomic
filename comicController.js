@@ -1,38 +1,41 @@
 app.controller('comicController', function($scope){
+	
+	//Get list of comics in order
 	$scope.comics = [ 
-		"img1.png", 
-		"img2.png", 
-		"img3.png",
-		"img4.png"
+		"comics/img1.png", 
+		"comics/img2.png", 
+		"comics/img3.png",
+		"comics/img4.png"
 	];
-	$scope.currentComicIndex = $scope.comics.length - 1;
-	$scope.comicURL = $scope.comics[$scope.currentComicIndex];
-	$scope.debug = $scope.comicURL;
+	
+	$scope.currentComicIndex = $scope.comics.length - 1;				//set current comic index to the last comic
+	$scope.comicURL = $scope.comics[$scope.currentComicIndex];			//display current comic
+	
+	
+	$scope.debug = Math.floor(Math.random() * $scope.comics.length);	//variable display for debugging purposes
 	
 	$scope.switchComic = function(cci){
-		$scope.currentComicIndex = cci;
-		$scope.comicURL = $scope.comics[cci];
+		if(cci < $scope.comics.length && cci >= 0){
+			$scope.currentComicIndex = cci;
+			$scope.comicURL = $scope.comics[cci];
+		}
 	}
 	
 	$scope.next = function (){
-		$scope.debug = "Next clicked"; //TODO: check if another comic exists
 		$scope.switchComic($scope.currentComicIndex + 1);
 	}
 	$scope.previous = function (){
-		$scope.debug = "Previous clicked"; //TODO: check if another comic exists
 		$scope.switchComic($scope.currentComicIndex - 1);
 	}
 	$scope.newest = function () {
-		$scope.debug = "Newest clicked";
 		$scope.switchComic($scope.comics.length - 1);
 	}
 	$scope.oldest = function () {
-		$scope.debug = "Oldest clicked";
 		$scope.switchComic(0);
 	}
 	$scope.random = function () {
-		$scope.debug = "Random clicked";
-		$scope.switchComic($scope.currentComicIndex + 1);
+		var randIndex = Math.floor(Math.random() * $scope.comics.length);
+		$scope.switchComic(randIndex);
 	}
 
 });
