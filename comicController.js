@@ -11,13 +11,14 @@ app.controller('comicController', function($scope, $location){
 	$scope.currentComicIndex = $scope.comics.length - 1;				//set current comic index to the last comic
 	$scope.comicURL = $scope.comics[$scope.currentComicIndex];			//display current comic
 	
-	$scope.myURL = $location.absUrl;
-	$scope.debug = $scope.myURL;	//variable display for debugging purposes
+	var myUrlIndex = $location.search();
+	$scope.debug = myUrlIndex["comic"];	//variable display for debugging purposes
 	
 	$scope.switchComic = function(cci){
 		if(cci < $scope.comics.length && cci >= 0){
 			$scope.currentComicIndex = cci;
 			$scope.comicURL = $scope.comics[cci];
+			$location.url("?comic=" + cci)
 			$scope.prevStyle = {"display" : "inline"};
 			$scope.nextStyle = {"display" : "inline"};
 			
@@ -32,7 +33,7 @@ app.controller('comicController', function($scope, $location){
 		}
 	}
 	
-	$scope.switchComic($scope.comics.length - 1); //required to get correct navigation display on initialization
+	$scope.switchComic(myUrlIndex["comic"]); //required to get correct navigation display on initialization
 	
 	$scope.next =     function (){
 		$scope.switchComic($scope.currentComicIndex + 1);
