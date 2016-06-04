@@ -1,36 +1,46 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en-EU">
 	<head>
 		<title>Wolves of Chiswick</title>
 		<meta charset="UTF-8">
-		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="style.css"><!--currently empty-->
+		<!--bootstrap-->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+		<!--angular-->
 		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 	</head>
 	<body>
-		<noscript>It appears that JavaScript has been disabled or is not supported. This site can only work with JavaScript enabled!</noscript>
-		<header>
-			<h1>The Wolves of Chiswick</h1>			
-		</header>
-		<div data-ng-app="myApp" data-ng-controller="comicController">
-			<nav>
-				<ul>
-					<li data-ng-style="prevStyle" data-ng-click="oldest()">&lt;&lt;</li>
-					<li data-ng-style="prevStyle" data-ng-click="previous()">&lt;</li>
-					<li data-ng-click="random()">Random</li>
-					<li data-ng-style="nextStyle" data-ng-click="next()">&gt;</li>
-					<li data-ng-style="nextStyle" data-ng-click="newest()">&gt;&gt;</li>			
-				</ul>
-			</nav>
-			<img data-ng-src="{{ comicURL }}" alt="Wolves of Chiswick webcomic">
-			<nav>
-				<ul>
-					<li data-ng-style="prevStyle" data-ng-click="oldest()">&lt;&lt;</li>
-					<li data-ng-style="prevStyle" data-ng-click="previous()">&lt;</li>
-					<li style="display: inline" data-ng-click="random()">Random</li>
-					<li data-ng-style="nextStyle" data-ng-click="next()">&gt;</li>
-					<li data-ng-style="nextStyle" data-ng-click="newest()">&gt;&gt;</li>		
-				</ul>
-			</nav>
+		<div class="container">
+			<noscript>It appears that JavaScript has been disabled or is not supported. This site can only work with JavaScript enabled!</noscript>
+			<header class="page-header">
+				<h1 class="text-center">The Wolves of Chiswick</h1>			
+			</header>
+			<div data-ng-app="myApp" data-ng-controller="comicController" class="jumbotron">
+				<div class="row text-center">
+					<nav class="btn-group">
+						<button class="btn btn-default" data-ng-style="prevStyle" data-ng-click="oldest()">&lt;&lt;</li>
+						<button class="btn btn-default" data-ng-style="prevStyle" data-ng-click="previous()">&lt;</li>
+						<button class="btn btn-default" data-ng-click="random()">Random</li>
+						<button class="btn btn-default" data-ng-style="nextStyle" data-ng-click="next()">&gt;</li>
+						<button class="btn btn-default" data-ng-style="nextStyle" data-ng-click="newest()">&gt;&gt;</li>			
+					</nav>
+				</div>
+				<div class="row">
+					<img data-ng-src="{{ comicURL }}" alt="Wolves of Chiswick webcomic" class="col-sm-12 img-thumbnail img-responsive">
+				</div>
+				<div class="row text-center">
+					<nav class="btn-group">
+						<button class="btn btn-default" data-ng-style="prevStyle" data-ng-click="oldest()">&lt;&lt;</li>
+						<button class="btn btn-default" data-ng-style="prevStyle" data-ng-click="previous()">&lt;</li>
+						<button class="btn btn-default" data-ng-click="random()">Random</li>
+						<button class="btn btn-default" data-ng-style="nextStyle" data-ng-click="next()">&gt;</li>
+						<button class="btn btn-default" data-ng-style="nextStyle" data-ng-click="newest()">&gt;&gt;</li>			
+					</nav>
+				</div>
+			</div>
 		</div>
 		<script src="myApp.js"></script>
 		<script src="comicController.js"></script>
